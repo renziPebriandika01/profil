@@ -18,7 +18,7 @@ function App() {
         {isDarkMode ? <CiLight className="w-10 h-10 "/> : <FaMoon className="w-10 h-10"/>}
       </button>
       
-    <div className=" w-full text-center pb-4 ">
+    <div className=" w-full text-center">
      <p className="  text-gray-500 text-sm">
     &copy; 2023 Renzi Febriandika. All Rights Reserved.
      </p>
