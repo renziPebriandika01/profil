@@ -20,10 +20,10 @@ function App() {
     };
   }, []);
   const parallaxStyle = {
-    transform: `translate(-50%, ${scrollPosition * 0.8}px)`,
+    transform: `translate(-50%, ${scrollPosition * 1.3}px)`,
   };
   return (
-  <div  className="bg-cover bg-center h-full relative" style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover'  }}>
+  <div  className="bg-cover bg-center  relative" style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover', height:'1000px'  }}>
       <div className="parallax" style={parallaxStyle}>
     <h1>PARALLAX TALUA E</h1>
       </div>
@@ -31,7 +31,7 @@ function App() {
     <div className="flex flex-col items-center">
 
       
-    <div className=" w-full text-center  ">
+    <div className=" w-full text-center mt-10 ">
     </div>
      <div className="bg-white rounded-lg shadow-md p-6 mb-10">
         <img

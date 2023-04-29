@@ -1,15 +1,15 @@
 
   .parallax {
     position: absolute;
-    top: 50%;
+    top: 10%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-20%, -50%);
     z-index: 1;
     text-align: center;
     color: #fff;
     font-size: 3rem;
     font-weight: bold;
-    transition: transform 0.3s ease-out;
+    transition: transform 0.1s ease-out;
   }
   
   .parallax h1 {
