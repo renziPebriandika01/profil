@@ -1,29 +1,39 @@
-import React, { useState } from "react";
-import profileImage from './gabimaru.jpg'
-import { FaFacebook, FaInstagram, FaLinkedin, FaWhatsapp, FaMoon  } from 'react-icons/fa';
-import {CiLight} from 'react-icons/ci'
+import { useEffect, useState } from "react";
+import profileImage from './assets/gabimaru.jpg'
+import backgroundImage from './assets/icelandic.jpg'
+import { FaFacebook, FaInstagram, FaLinkedin, FaWhatsapp  } from 'react-icons/fa';
+import './App.css'
 
 function App() {
-    const [isDarkMode, setIsDarkMode] = useState(false);
+  const [scrollPosition, setScrollPosition] = useState(0);
 
-    const handleDarkModeToggle = () => {
-      setIsDarkMode(!isDarkMode);
+  useEffect(() => {
+    const handleScroll = () => {
+      const position = window.pageYOffset;
+      setScrollPosition(position);
     };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+  const parallaxStyle = {
+    transform: `translate(-50%, ${scrollPosition * 0.8}px)`,
+  };
   return (
-    <div className={`app ${isDarkMode ? "dark-mode" : ""}`}>
+  <div  className="bg-cover bg-center h-full relative" style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover'  }}>
+      <div className="parallax" style={parallaxStyle}>
+    <h1>PARALLAX TALUA E</h1>
+      </div>
 
     <div className="flex flex-col items-center">
 
-    <button onClick={handleDarkModeToggle} className="absolute top-4 right-4">
-        {isDarkMode ? <CiLight className="w-10 h-10 "/> : <FaMoon className="w-10 h-10"/>}
-      </button>
       
-    <div className=" w-full text-center pb-4 ">
-     <p className="  text-gray-500 text-sm">
-    &copy; 2023 Renzi Febriandika. All Rights Reserved.
-     </p>
+    <div className=" w-full text-center  ">
     </div>
-     <div className="bg-white rounded-lg shadow-md p-6 ">
+     <div className="bg-white rounded-lg shadow-md p-6 mb-10">
         <img
           src={profileImage}
           alt="Profile"
@@ -53,7 +63,7 @@ function App() {
           <div className="bg-white rounded-lg shadow-md p-6">
           <a href="https://wa.me/082383246251" className="flex items-center space-x-2">
             <FaWhatsapp className="text-green-500 w-8 h-8" />
-            <span className="text-gray-700 font-medium">Whatsapp</span>
+            <span className="text-gray-700 font-medium ">Whatsapp</span>
           </a>
           </div>
           </div>          
